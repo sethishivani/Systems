@@ -1,5 +1,4 @@
 //Link: https://practice.geeksforgeeks.org/problems/java-collection-set-4-treemap/1
-
 class treeMap
 {
     /*Inserts an entry with key x and value y in map */

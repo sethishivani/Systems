@@ -1,5 +1,6 @@
 /*You are required to complete below methods*/
 import java.util.*;
+
 class arrayList2
 {
     /*inserts an element x at

@@ -2,7 +2,6 @@
 import java.util.*;
 import java.lang.*;
 import java.io.*;
-
 class arrayList {
     public static void main (String[] args) {
         int t,n,q,p,r,data;

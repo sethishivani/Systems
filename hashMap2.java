@@ -1,5 +1,4 @@
 //Link : https://practice.geeksforgeeks.org/problems/java-collection-set-3-hashmap/1
-
 class hashMap2
 {
     /*Inserts an entry with key x and value y in map */
