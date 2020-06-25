@@ -1,4 +1,5 @@
 //Link : https://practice.geeksforgeeks.org/problems/java-collection-set-2-set/1
+import java.util.*;
 class set
 {
     /*inserts an element x to the set s */
