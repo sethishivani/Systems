@@ -42,7 +42,8 @@ public class hashSet {
         set.add(b3);
         set.add(b4);
         //Traversing HashSet
-        //System.out.println(set.contains(b4));
+        System.out.println(set.contains(b4));
+        System.out.println(set.contains(b1));
         for(Book b:set){
             System.out.println(b.id+" "+b.name+" "+b.author+" "+b.publisher+" "+b.quantity);
         }
