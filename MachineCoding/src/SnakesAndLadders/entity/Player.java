@@ -1,8 +1,8 @@
 package SnakesAndLadders.entity;
 
 public class Player {
-    String names;
-    int pos;
+    private String names;
+    private int pos;
     public Player(String names)
     {
         this.names=names;
@@ -15,11 +15,11 @@ public class Player {
         this.pos = pos;
     }
 
-    public String getNames() {
+    String getNames() {
         return names;
     }
 
-    public boolean move(int diceVal)
+    boolean move(int diceVal)
     {
         if(pos+diceVal>100)
             return false;

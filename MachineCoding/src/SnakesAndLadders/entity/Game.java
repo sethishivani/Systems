@@ -4,11 +4,11 @@ import java.util.*;
 import java.io.*;
 
 public class Game {
-    int dice;
-    boolean end;
-    Map<Integer, Snake> snakes;
-    Map<Integer, Ladder> ladders;
-    ArrayList<Player> players;
+    private int dice;
+    private boolean end;
+    private Map<Integer, Snake> snakes;
+    private Map<Integer, Ladder> ladders;
+    private ArrayList<Player> players;
     public Game() throws IOException {
         dice=0;
         end=false;

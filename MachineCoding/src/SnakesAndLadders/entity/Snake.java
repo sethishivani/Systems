@@ -1,8 +1,8 @@
 package SnakesAndLadders.entity;
 
 public class Snake {
-    int head;
-    int tail;
+    private int head;
+    private int tail;
     public Snake(int head,int tail)
     {
         this.head = head;
