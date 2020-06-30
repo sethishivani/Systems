@@ -1,9 +1,9 @@
-package SnakesAndLadders;
+package SnakesAndLadders.entity;
 
 public class Player {
     String names;
     int pos;
-    Player(String names)
+    public Player(String names)
     {
         this.names=names;
         this.pos=0;

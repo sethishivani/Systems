@@ -1,4 +1,4 @@
-package SnakesAndLadders;
+package SnakesAndLadders.entity;
 
 import java.util.*;
 import java.io.*;
@@ -6,84 +6,83 @@ import java.io.*;
 public class Game {
     int dice;
     boolean end;
-    Game()
-    {
+    Map<Integer, Snake> snakes;
+    Map<Integer, Ladder> ladders;
+    ArrayList<Player> players;
+    public Game() throws IOException {
         dice=0;
         end=false;
+        snakes=inputSnake();
+        ladders=inputLadder();
+        players=inputPlayer();
     }
-    ArrayList<Player> inputPlayer() throws IOException
+    public ArrayList<Player> inputPlayer() throws IOException
     {
         int numP;
         String name;
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-//        System.out.println("Enter num Of Players");
+        System.out.println("Enter num Of Players");
         numP = Integer.parseInt(br.readLine());
         ArrayList<Player> al=new ArrayList<>();
         for(int i=0;i<numP;i++)
         {
-//            System.out.println("Enter a String");
+            System.out.println("Enter a String");
             name = br.readLine();
-            Player p= new Player(name);
+            Player p=new Player(name);
             al.add(p);
         }
         return al;
-
-
     }
-    Map<Integer,Snake> inputSnake()
+    public Map<Integer,Snake> inputSnake()throws IOException
     {
         int numS;
         int head, tail;
-        Scanner scn = new Scanner(System.in);
-//        System.out.println("Enter num Of Snakes");
-        numS=scn.nextInt();
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        System.out.println("Enter num Of Snakes");
+        numS=Integer.parseInt(br.readLine());
         Map<Integer,Snake> map=new HashMap<Integer,Snake>();
         for(int i=0;i<numS;i++)
         {
-//            System.out.println("Enter Snakes head and tail");
-            head=scn.nextInt();
-            tail=scn.nextInt();
+            System.out.println("Enter Snakes head and tail");
+            head=Integer.parseInt(br.readLine());
+            tail=Integer.parseInt(br.readLine());
             Snake s= new Snake(head,tail);
             map.put(head,s);
         }
         return map;
     }
-    Map<Integer,Ladder> inputLadder()
+    public Map<Integer,Ladder> inputLadder()throws IOException
     {
         int numL;
         int start, end;
-        Scanner scn = new Scanner(System.in);
-//        System.out.println("Enter num Of Ladder");
-        numL=scn.nextInt();
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        System.out.println("Enter num Of Ladder");
+        numL=Integer.parseInt(br.readLine());
         Map<Integer,Ladder> map=new HashMap<>();
         for(int i=0;i<numL;i++)
         {
-//            System.out.println("Enter Ladder start and end");
-            start=scn.nextInt();
-            end=scn.nextInt();
+            System.out.println("Enter Ladder start and end");
+            start=Integer.parseInt(br.readLine());
+            end=Integer.parseInt(br.readLine());
             Ladder l= new Ladder(start,end);
             map.put(start,l);
         }
         return map;
     }
-    public static void main(String[] args) throws IOException {
-        Game g=new Game();
-
-//        int numP=players.size();
+    public void play()
+    {
         Random rand = new Random();
-        Map<Integer,Snake> snakes=g.inputSnake();
-        Map<Integer,Ladder> ladders=g.inputLadder();
-        ArrayList<Player> players=g.inputPlayer();
-        while(g.end==false)
+        while(end==false)
         {
             Iterator<Player> it = players.iterator();
-            while(it.hasNext()&&g.end==false)
+            while(it.hasNext()&&end==false)
             {
                 Player p = it.next();
                 // Generate random integers in range 0 to 6
-                g.dice = rand.nextInt(6)+1;
-                System.out.print(p.getNames()+" rolled a "+g.dice+" and moved from "+p.getPos());
-                g.end=p.move(g.dice);
+                int rd = rand.nextInt(6)+1;
+                dice=rd;
+                System.out.print(p.getNames()+" rolled a "+dice+" and moved from "+p.getPos());
+                end=p.move(dice);
                 boolean sOL=true;
                 while(sOL)
                 {
@@ -103,7 +102,7 @@ public class Game {
                 System.out.println(" to "+p.getPos());
                 if(p.getPos()==100)
                 {
-                    g.end=true;
+                    end=true;
                     System.out.println(p.getNames()+" wins the game");
                 }
             }

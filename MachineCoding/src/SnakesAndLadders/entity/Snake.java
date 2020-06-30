@@ -1,9 +1,9 @@
-package SnakesAndLadders;
+package SnakesAndLadders.entity;
 
 public class Snake {
     int head;
     int tail;
-    Snake(int head,int tail)
+    public Snake(int head,int tail)
     {
         this.head = head;
         this.tail = tail;
